@@ -1,22 +1,37 @@
-<h1>Login</h1>
+<div class="container-lg my-5">
+  <div class="text-center">
+    <h2>Log In</h2>
+  </div>
 
-<div class="d-flex justify-content-center align-items-center">
-  <form action="/login" method="POST" style="width: 500px; height: auto; border: grey 1px solid; border-radius: 50px; padding: 40px 40px" class="d-flex flex-column justify-content-center">
+  <div class="row justify-content-center my-5">
+    <div class="col-lg-6">
+      <form action="/login" method="POST" style="" class="d-flex flex-column justify-content-center">
  
-    <div class="mb-3">
         <label class="form-label">Username</label>
-        <input class="form-control" type="text" name="username" placeholder="ironhacker" />
-    </div>
- 
-    <div class="mb-3">
+        <div class="mb-4 input-group">
+          <span class="input-group-text">
+            <i class="bi bi-person-circle" style="color: black"></i>
+          </span>
+          <input class="form-control" type="text" name="username" placeholder="ironhacker" />
+        </div>
+
         <label class="form-label">Password</label>
-        <input class="form-control" type="password" name="password" placeholder="********" />
-    </div>
+        <div class="mb-4 input-group">
+          <span class="input-group-text">
+            <i class="bi bi-eye-slash-fill"></i>
+          </span>
+          <input class="form-control" type="password" name="password" placeholder="********" />
+        </div>
+        
     
-    {{#if error}}
-    <p style="color: red">{{error}}</p>
-    {{/if}}
+        {{#if error}}
+        <p style="color: red">{{error}}</p>
+        {{/if}}
  
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
+        <button class="btn btn-dark" type="submit">Login</button>
+      </form>
+    </div>
+
+  </div>
+  
 </div>

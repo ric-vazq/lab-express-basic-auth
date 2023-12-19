@@ -10,7 +10,7 @@ router.get("/signup", isLoggedOut, (req, res, next) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res, next) => {
-    const { username, password } = req.body;
+    const { username, email, password } = req.body;
 
     User.findOne({username})
     .then(foundUser => {
@@ -22,12 +22,12 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
                 .genSalt(saltRounds)
                 .then(salt => bcrypt.hash(password, salt))
                 .then(hashedPassword => {
-                    return User.create({ username, password: hashedPassword})
+                    return User.create({ username, email, password: hashedPassword})
                 })
                 .then(userDB => {
                 res.redirect("/profile")
-     })
-     .catch(err => next(err))
+                })
+                .catch(err => next(err))
         }
     })
 });
